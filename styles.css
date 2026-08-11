@@ -1,0 +1,394 @@
+.error-message{
+    display: none;
+    color: red;
+}
+.result{
+    display: none;
+}
+.result.active{
+    display: block;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --black: #0b0b0a;
+    --panel: #121210;
+    --panel-2: #171714;
+    --cream: #f4efe5;
+    --muted: #918c82;
+    --gold: #c7a15a;
+    --gold-soft: #e1c27e;
+    --border: rgba(255, 255, 255, 0.09);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--black);
+    background-image: url("./background.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+}
+
+.hero {
+    position: relative;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px 170px;
+}
+
+.hero h1 {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: none;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 6vw, 86px);
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -3px;
+    color: var(--cream);
+    white-space: nowrap;
+}
+
+.hero h1::before {
+    content: "STRENGTH • PERFORMANCE • DISCIPLINE";
+    display: block;
+    margin-bottom: 22px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--gold);
+}
+
+.hero h1::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 2px;
+    margin: 24px auto 0;
+    background: var(--gold);
+}
+
+.hero-subtitle {
+    position: relative;
+    z-index: 2;
+    max-width: 480px;
+    margin-top: 22px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.wrapper {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    padding: 0 20px 100px;
+    margin-top: -220px;
+}
+
+.container {
+    width: 560px;
+    max-width: 100%;
+    padding: 38px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.035),
+            rgba(255,255,255,0.012)
+        ),
+        var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: 0 35px 100px rgba(0, 0, 0, 0.55);
+}
+
+.container::before {
+    content: "ENTER YOUR NUMBERS";
+    display: block;
+    margin-bottom: 27px;
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+}
+
+label {
+    display: block;
+    margin-bottom: 7px;
+    color: #817c73;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 16px 17px;
+    border: 1px solid #292925;
+    border-radius: 10px;
+    outline: none;
+    background: #0e0e0d;
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+input::placeholder {
+    color: #59564f;
+}
+
+input:hover,
+select:hover {
+    border-color: #3a3933;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--gold);
+    background: #131310;
+    box-shadow: 0 0 0 3px rgba(199, 161, 90, 0.07);
+}
+
+.btn {
+    width: 100%;
+    margin-top: 8px;
+    padding: 17px;
+    border: 0;
+    border-radius: 10px;
+    background: var(--gold);
+    color: #15130f;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+        background .2s ease,
+        transform .15s ease,
+        box-shadow .2s ease;
+}
+
+.btn:hover {
+    background: var(--gold-soft);
+    box-shadow: 0 10px 30px rgba(199, 161, 90, 0.18);
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.error-message {
+    display: none;
+    margin-top: 12px;
+    padding: 12px;
+    border-radius: 9px;
+    background: rgba(160, 50, 50, 0.12);
+    border: 1px solid rgba(190, 80, 80, 0.18);
+    color: #db9999;
+    font-size: 12px;
+    text-align: center;
+}
+
+.result {
+    display: none;
+    position: relative;
+    margin-top: 42px;
+    padding-top: 42px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+}
+
+.result.active {
+    display: block;
+    animation: rankReveal .65s ease-out;
+}
+
+.result::before {
+    content: "YOUR STRENGTH RANK";
+    display: block;
+    margin-bottom: 5px;
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.result img {
+    display: block;
+    width: 330px;
+    max-width: 90%;
+    height: auto;
+    margin: 0 auto 5px;
+    filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.55));
+}
+
+.result [data-rankname] {
+    margin: 4px 0 25px;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(45px, 7vw, 68px);
+    line-height: .9;
+    font-weight: 800;
+    letter-spacing: -2px;
+    color: var(--cream);
+}
+
+.stats-row {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+
+.stats-row > * {
+    flex: 1;
+}
+
+.result [data-onerm],
+.result [data-ratio] {
+    color: var(--cream);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.hero h1,
+.hero-subtitle {
+    transform: translateY(-70px);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+@keyframes rankReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (min-width: 1000px) {
+    .hero {
+        min-height: 620px;
+    }
+
+    .wrapper {
+        margin-top: -300px;
+    }
+
+    .container {
+        width: 560px;
+    }
+}
+
+@media (max-width: 999px) {
+    .hero {
+        min-height: 560px;
+        padding: 75px 30px 170px;
+    }
+
+    .hero h1 {
+        font-size: 72px;
+    }
+
+    .wrapper {
+        margin-top: -220px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        min-height: 520px;
+        padding: 65px 22px 145px;
+    }
+
+    .hero::before,
+    .hero::after {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 56px;
+        letter-spacing: -2.5px;
+    }
+
+    .hero h1::before {
+        font-size: 8px;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+    }
+
+    .hero-subtitle {
+        max-width: 330px;
+        font-size: 13px;
+    }
+
+    .wrapper {
+        padding: 0 14px 70px;
+        margin-top: -220px;
+    }
+
+    .container {
+        padding: 28px 21px;
+    }
+
+    .result img {
+        width: 270px;
+    }
+
+    .result [data-rankname] {
+        font-size: 48px;
+    }
+}
+
+select {
+    appearance: none;
+    padding-right: 45px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 18px center;
+}
