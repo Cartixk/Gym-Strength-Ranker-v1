@@ -2,12 +2,23 @@
     display: none;
     color: red;
 }
-.result{
+
+.result-overlay {
     display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
-.result.active{
-    display: block;
+
+.result-overlay.active {
+    display: flex;
 }
+
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
 
@@ -225,28 +236,18 @@ select:focus {
     text-align: center;
 }
 
+
 .result {
-    display: none;
     position: relative;
-    margin-top: 42px;
-    padding-top: 42px;
+    width: 480px;
+    max-width: 100%;
+    padding: 35px 28px;
     text-align: center;
-    border-top: 1px solid var(--border);
-}
-
-.result.active {
-    display: block;
-    animation: rankReveal .65s ease-out;
-}
-
-.result::before {
-    content: "YOUR STRENGTH RANK";
-    display: block;
-    margin-bottom: 5px;
-    color: var(--gold);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 3px;
+    background: var(--panel);
+    border: 1px solid rgba(199, 161, 90, 0.35);
+    border-radius: 20px;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+    animation: rankReveal 0.4s ease-out;
 }
 
 .result img {
@@ -391,4 +392,28 @@ select {
     appearance: none;
     padding-right: 45px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 18px center;
+}
+.close-result {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--panel-2);
+    color: var(--cream);
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease;
+}
+
+.close-result:hover {
+    background: var(--gold);
+    color: var(--black);
+    border-color: var(--gold);
 }

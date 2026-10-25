@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gym Strength Ranker</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <header class="hero">
         <h1>Gym Strength Ranker</h1>
@@ -13,7 +15,7 @@
     </header>
     <div class="wrapper">
         <div class="container">
-            
+
             <!-- error msg -->
             <p class="error-message" data-error></p>
             <!-- bw and gender -->
@@ -28,7 +30,7 @@
                 </select>
 
                 <!-- all about exercises -->
-            
+
                 <label for="exercises">Select exercise</label>
                 <select class="exercises" id="exercises">
                     <option value="" disabled selected>Select Exercise</option>
@@ -46,28 +48,30 @@
 
                 <!-- calculate -->
                 <button type="submit" class="btn">
-                Calculate Your Rank
+                    Calculate Your Rank
                 </button>
-                
+
             </form>
 
             <!-- result and rank block -->
-            <div class="result" data-result>
-                <!-- image of rank -->
-                <img data-ranking>
-                <!-- data related to ur rank -->
-                <p data-rankname></p>
-                <p data-onerm></p>
-                <p data-ratio></p>
+
+            <div class="result-overlay" data-result>
+                <div class="result">
+                    <button type="button" class="close-result">&times;</button>
+
+                    <p class="result-label">YOUR STRENGTH RANK</p>
+                    <img data-ranking alt="Your strength rank">
+                    <p data-rankname></p>
+                    <p data-onerm></p>
+                    <p data-ratio></p>
+                </div>
             </div>
-            
-            
-            
 
         </div>
     </div>
-    
+
 
     <script src="index.js"></script>
 </body>
+
 </html>

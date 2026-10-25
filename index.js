@@ -36,11 +36,18 @@ let Exercises = document.querySelector(".exercises");
 let Weight = document.querySelector(".lift");
 let Reps = document.querySelector(".reps");
 let Calculatebtn = document.querySelector(".btn");
-let FinalResult = document.querySelector(".result");
+let FinalResult = document.querySelector("[data-result]");
 let ErrorMsg = document.querySelector("[data-error]");
 
-//initial things
-
+//close popup
+document.querySelector(".close-result").addEventListener("click", () => {
+    FinalResult.classList.remove("active");
+});
+FinalResult.addEventListener("click", (e) => {
+    if (e.target === FinalResult) {
+        FinalResult.classList.remove("active");
+    }
+});
 
 //btn
 Calculatebtn.addEventListener("click", (e)=>{
@@ -54,11 +61,11 @@ Calculatebtn.addEventListener("click", (e)=>{
     
     if(!bodyweight || !gender || !exercise || !weight || !reps || bodyweight <= 0 || weight <= 0 || reps <= 0){
         ErrorMsg.innerText = "Please fill out all the fields with valid positive values";
-        ErrorMsg.style.display = "block";
+        ErrorMsg.style.display = "block";  //show error hide result
         FinalResult.classList.remove("active");
         return;
     }
-    ErrorMsg.style.display = "none";
+    ErrorMsg.style.display = "none";  //display
 
     let result = calculaterank(bodyweight, gender, exercise, weight, reps);
     console.log(result);
